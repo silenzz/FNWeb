@@ -1,0 +1,239 @@
+﻿<link rel="stylesheet" href="~/css/User/Cart.css" asp-append-version="true" />
+@Html.Raw(ViewData["content1"])
+@*
+<main>
+    
+        @Html.Raw(ViewData["content"])
+
+
+    @*<aside>
+    <div class="summary">
+    <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+    <div class="summary-subtotal">
+    <div class="subtotal-title">Subtotal</div>
+    <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
+    <div class="summary-promo hide">
+    <div class="promo-title">Promotion</div>
+    <div class="promo-value final-value" id="basket-promo"></div>
+    </div>
+    </div>
+    <div class="summary-delivery">
+    <select name="delivery-collection" class="summary-delivery-selection">
+    <option value="0" selected="selected">Select Collection or Delivery</option>
+    <option value="collection">Collection</option>
+    <option value="first-class">Royal Mail 1st Class</option>
+    <option value="second-class">Royal Mail 2nd Class</option>
+    <option value="signed-for">Royal Mail Special Delivery</option>
+    </select>
+    </div>
+    <div class="summary-total">
+    <div class="total-title">Total</div>
+    <div class="total-value final-value" id="basket-total">130.00</div>
+    </div>
+    <div class="summary-checkout">
+    <button class="checkout-cta">Go to Secure Checkout</button>
+    </div>
+    </div>
+    </aside>
+</main>
+<script>
+    var priceElement = document.querySelectorAll(".price");
+   priceElement.forEach(priceElement=>{
+    var priceText = priceElement.textContent;
+    var priceValue = parseFloat(priceText);
+
+    if (isNaN(priceValue)) {
+        priceElement.textContent = "Price";
+    } else {
+        priceElement.textContent = priceValue.toLocaleString("vi-VN") + "đ";
+        }
+    })
+
+    var sElement = document.querySelectorAll(".subtotal");
+    sElement.forEach(sElement=>{
+    var sText = sElement.textContent;
+    var sValue = parseFloat(sText);
+
+    if (isNaN(sValue)) {
+            sElement.textContent = "Subtotal";
+
+    } else {
+       sElement.textContent = sValue.toLocaleString("vi-VN") + "đ";
+    }
+    })
+    var quantityFields = document.querySelectorAll('.quantity-field');
+    quantityFields.forEach((field) => {
+        field.addEventListener('change', () => {
+            var basketProduct = field.closest('.basket-product');
+            var priceEl = basketProduct.querySelector('.price');
+            var subtotalEl = basketProduct.querySelector('.subtotal');
+            var quantity = parseInt(field.value);
+            var price = parseFloat(priceEl.textContent.replace(/\D/g, ''));
+            var subtotal = quantity * price;
+            subtotalEl.textContent = subtotal.toLocaleString('vi', {style: 'currency', currency: 'VND'});
+        });
+    });
+</script>
+
+<div style="margin-bottom:50px;">
+    <h1 style="text-align: center;">Shop Q</h1>
+    <hr style="width:100%">
+    <main>
+        <div class="basket">
+            <div class="basket-labels">
+                <ul>
+                    <li class="item item-heading">Tên sản phẩm</li>
+                    <li class="price">Giá</li>
+                    <li class="quantity">Số lượng</li>
+                    <li class="subtotal">Tổng cộng</li>
+                </ul>
+            </div>
+            <div class="basket-product">
+                <div class="item">
+                    <div class="product-image">
+                        <img src="img/328605195_1388040208617603_6924839616853883542_n.png" alt="" class="product-frame">
+                    </div>
+                    <div class="product-details">
+                        <span><strong><span class="item-quantity">4 </span>x</strong> Lenovo IdeaPad 5 Pro 14ITL6 82L300CAIN</span>
+                        <p>Thông tin</p>
+                    </div>
+                </div>
+                <div class="price money">15000000</div>
+                <div class="quantity">
+                    <input type="number" value="4" min="1" class="quantity-field">
+                </div>
+                <div class="subtotal">60.000.000</div>
+                <div class="remove">
+                    <button>Remove</button>
+                    <button>Save</button>
+                </div>
+            </div>
+        </div>
+
+        <aside>
+            <div class="summary">
+                <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+                <div class="summary-subtotal">
+                    <div class="subtotal-title">Subtotal</div>
+                    <div class="subtotal-value final-value" id="basket-subtotal">84.000.000</div>
+                    <div class="summary-promo hide">
+                        <div class="promo-title">Promotion</div>
+                        <div class="promo-value final-value" id="basket-promo"></div>
+                    </div>
+                </div>
+                <div class="summary-total">
+                    <div class="total-title">Total</div>
+                    <div class="total-value final-value" id="basket-total">84.000.000</div>
+                </div>
+                <div class="summary-checkout">
+                    <button class="checkout-cta">Thanh toán</button>
+                </div>
+            </div>
+        </aside>
+    </main>
+</div>
+<h1 style="text-align: center;">Shop N</h1>
+<hr style="width:100%">
+
+<main>
+    <div class="basket">
+        <div class="basket-product">
+            <div class="item">
+                <div class="product-image">
+                    <img src="img/265516218_502403377849512_3910031760270671636_n.png" alt="" class="product-frame">
+                </div>
+                <div class="product-details">
+                    <h1><strong><span class="item-quantity">1</span> x </strong> Iphone 13 pro max</h1>
+                    <p>Thông tin</p>
+                </div>
+            </div>
+            <div class="price">24.000.000</div>
+            <div class="quantity">
+                <input type="number" value="1" min="1" class="quantity-field">
+            </div>
+            <div class="subtotal">24.000.0000</div>
+            <div class="remove">
+                <button>Remove</button>
+            </div>
+        </div>
+    </div>
+    <aside>
+        <div class="summary">
+            <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+            <div class="summary-subtotal">
+                <div class="subtotal-title">Subtotal</div>
+                <div class="subtotal-value final-value" id="basket-subtotal">84.000.000</div>
+                <div class="summary-promo hide">
+                    <div class="promo-title">Promotion</div>
+                    <div class="promo-value final-value" id="basket-promo"></div>
+                </div>
+            </div>
+            <div class="summary-total">
+                <div class="total-title">Total</div>
+                <div class="total-value final-value" id="basket-total">84.000.000</div>
+            </div>
+            <div class="summary-checkout">
+                <button class="checkout-cta">Thanh toán</button>
+            </div>
+        </div>
+    </aside>
+</main>
+
+
+
+<main>
+        <h1 style="text-align: center;">Shop Q</h1>
+        <hr style="width:50%">
+        <div class="basket">
+            <div class="basket-labels">
+                <ul>
+                    <li class="item item-heading">Tên sản phẩm</li>
+                    <li class="price">Giá</li>
+                    <li class="quantity">Số lượng</li>
+                    <li class="subtotal">Tổng cộng</li>
+                </ul>
+            </div>
+            <div class="basket-product">
+                <div class="item">
+                    <div class="product-image">
+                        <img src="img/328605195_1388040208617603_6924839616853883542_n.png" alt="" class="product-frame">
+                    </div>
+                    <div class="product-details">
+                        <h1><strong><span class="item-quantity">4 </span>x</strong> Lenovo IdeaPad 5 Pro 14ITL6 82L300CAIN</h1>
+                        <p>Thông tin</p>
+                    </div>
+                </div>
+                <div class="price">15.000.000</div>
+                <div class="quantity">
+                    <input type="number" value="4" min="1" class="quantity-field">
+                </div>
+                <div class="subtotal">60.000.000</div>
+                <div class="remove">
+                    <button>Remove</button>
+                    <button>Save</button>
+                </div>
+            </div>
+        </div>
+
+        <aside>
+            <div class="summary">
+                <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+                <div class="summary-subtotal">
+                    <div class="subtotal-title">Subtotal</div>
+                    <div class="subtotal-value final-value" id="basket-subtotal">84.000.000</div>
+                    <div class="summary-promo hide">
+                        <div class="promo-title">Promotion</div>
+                        <div class="promo-value final-value" id="basket-promo"></div>
+                    </div>
+                </div>
+                <div class="summary-total">
+                    <div class="total-title">Total</div>
+                    <div class="total-value final-value" id="basket-total">84.000.000</div>
+                </div>
+                <div class="summary-checkout">
+                    <button class="checkout-cta">Thanh toán</button>
+                </div>
+            </div>
+        </aside>
+</main>
+*@

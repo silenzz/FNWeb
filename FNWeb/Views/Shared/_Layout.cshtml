@@ -1,0 +1,242 @@
+﻿@{
+    var httpContext = ViewContext.HttpContext;
+    var session = httpContext.Session;
+    // sử dụng session ở đây
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FNWeb</title>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+</head>
+<body>
+    @*@if (session.GetString("ID") != null)
+    {
+    <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Final_web</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+    @if (session.GetString("ID") != null)
+    {
+    <li class="nav-item">
+    <a href="/user/cart" class="cart-icon">
+    <i class="fa fa-shopping-cart"></i>
+    </a>
+    </li>
+    }
+
+    </ul>
+
+    </div>
+    </div>
+    </nav>
+    </header>
+    }
+
+    <style>
+        a,nav-link{
+            color:black;
+        }
+        a:hover{
+            color:grey;
+        }
+    </style>
+    @if (session.GetString("ID") != null)
+                    {
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">QQQ</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">Home</a>
+                            </li>
+                               
+                                @if (session.GetString("Role").Equals("User"))
+                                {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/cart">Cart</a>
+                                </li>
+                                }
+                                
+                            </ul>
+
+                        <form class="form-inline my-2 my-lg-0 ">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <a href="/home/logout" class="btn btn-primary ml-2">Logout <i class="fad fa-sign-out"></i></a>
+                        </form>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+    }*@
+    <!-- Navbar -->
+    @if (session.GetString("ID") != null)
+    {
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <!-- Container wrapper -->
+                <div class="container-fluid">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand" href="/">QQQ</a>
+
+                    <!-- Toggle button -->
+                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                            data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <i class="fas fa-bars text-light"></i>
+                    </button>
+
+                    <!-- Collapsible wrapper -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left links -->
+                        <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+                            <li class="nav-item text-center mx-2 mx-lg-1">
+                                <a class="nav-link active" aria-current="page" href="/">
+                                    <div>
+                                        <i class="fas fa-home fa-lg mb-1"></i>
+                                    </div>
+                                    Home
+                                </a>
+                            </li>
+
+                        </ul>
+                        <!-- Left links -->
+                        <!-- Right links -->
+                       
+                        <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+                            @if (session.GetString("Role").Equals("User"))
+                            {
+                                <li class="nav-item text-center mx-2 mx-lg-1">
+                                    <a class="nav-link" href="/user/list_orders">
+                                        <div>
+
+
+                                            <i class="	fas fa-align-justify fa-lg mb-1"></i>
+
+
+                                        </div>
+                                        History
+                                    </a>
+                                </li>
+
+                                <li class="nav-item text-center mx-2 mx-lg-1">
+                                <a class="nav-link" href="/user/cart">
+                                    <div>
+
+                                        <i class="fas fa-cart-arrow-down fa-bell fa-lg mb-1"></i>
+
+
+                                    </div>
+                                    Cart
+                                </a>
+                            </li>
+                            
+                                <li class="nav-item text-center mx-2 mx-lg-1">
+
+                                    <form class="nav-link d-flex input-group w-auto ms-lg-3 my-3 my-lg-0" action="/user/search" method="post">
+                                        <input type="search" class="form-control" placeholder="Search" aria-label="Search" name="search" />
+                                        <button class="btn btn-primary" type="submit" data-mdb-ripple-color="dark">
+                                            Search
+                                        </button>
+                                    </form>
+                                </li>
+                            }
+                            @if (session.GetString("Role").Equals("Shop"))
+                            {
+                                <li class="nav-item text-center mx-2 mx-lg-1">
+                                    <a class="nav-link" href="/shop/add_product">
+                                        <div>
+                                            <i class="fas fa-solid fa-plus fa-lg mb-1"></i>
+                                         
+                                        </div>
+                                        Add product
+                                    </a>
+                                </li>
+                                <li class="nav-item text-center mx-2 mx-lg-1">
+                                    <a class="nav-link" href="/shop/orders">
+                                        <div>
+                                
+                                            <i class="fas fa-align-justify fa-lg mb-1"></i>
+                                        </div>
+                                       Orders
+                                    </a>
+                                </li>
+
+                              
+                            }
+                            <li class="nav-item text-center mx-2 mx-lg-1">
+                                <a class="nav-link" href="/home/logout">
+                                    <div>
+                                        <i class="fas fa-sign-out-alt  fa-lg mb-1"></i>
+
+                                    </div>
+                                    Log out
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Right links -->
+                        <!-- Search form -->
+
+                    </div>
+                    <!-- Collapsible wrapper -->
+                </div>
+                <!-- Container wrapper -->
+            </nav>
+        </header>
+    }
+    else
+    {
+        <style>
+            body{
+                padding-top:0%;
+            }
+        </style>
+    }
+
+    <!-- Navbar -->
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script>
+        let moneys = document.querySelectorAll('.money');
+        moneys.forEach(function (money) {
+            let value = parseFloat(money.textContent);
+            let formattedMoney = value.toLocaleString('vi-VN') + "đ";
+            money.textContent = formattedMoney;
+        });
+
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

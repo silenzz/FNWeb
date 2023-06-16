@@ -1,0 +1,55 @@
+﻿body {
+    background-color: #f2f2f2;
+    font-family: "Open Sans", sans-serif;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 30px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333333;
+}
+
+label {
+    font-weight: bold;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="password"] {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    color: #333333;
+}
+
+.form-group a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+}

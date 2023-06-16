@@ -1,0 +1,123 @@
+﻿@*<link rel="stylesheet" href="~/css/User/Cart2.css" asp-append-version="true" />
+<div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID Order</th>
+            <th>ID User</th>
+            <th>Address to ship</th>
+            <th>Price</th>
+            <th>Date At</th>
+            <th>Status</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @Html.Raw(ViewData["content1"])
+    </tbody>
+
+</table>
+</div>
+<br />
+
+<form method="post" action="/shop/accepct">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @Html.Raw(ViewData["content"])
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Total:</td>
+                <td class="money">@ViewData["tt"]</td>
+            </tr>
+        </tfoot>
+    </table>
+   
+    @if (!string.IsNullOrEmpty(ViewData["ch"]?.ToString()))
+    {
+        <div class="form-group text-center">
+            <select class="form-control" name="ac">
+                <option value=1>Đồng ý</option>
+                <option value=2>Hủy đơn hàng</option>
+            </select>
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Duyệt đơn hàng</button>
+    </div>}
+</form>
+*@
+@{
+    ViewData["Title"] = "Students here";
+}
+<link rel="stylesheet" href="~/css/shop/store1.css" asp-append-version="true" />
+<div class="blockage">
+    <div>
+        <h1>DELIVERY CONFIRMATION</h1>
+    </div>
+    <div class="order">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID Order</th>
+                    <th>ID User</th>
+                    <th>Address to ship</th>
+                    <th>Price</th>
+                    <th>Date At</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+               @Html.Raw(ViewData["c1"])
+            </tbody>
+        </table>
+    </div>
+    <form method="post" action="/shop/accepct" class="item_collection">
+        <div class="title">ITEMS LIST</div>
+        <div class="items">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody class="table_content">
+                    @Html.Raw(ViewData["c2"])
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Total:</td>
+                        <td class="money">@ViewData["tt"]</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        @if (!string.IsNullOrEmpty(ViewData["ch"]?.ToString()))
+        {
+            <div class="form-group text-center choices">
+                <select class="form-control" name="ac">
+                    <option value="1">Đồng ý</option>
+                    <option value="2">Hủy đơn hàng</option>
+                </select>
+            </div>
+            <div class="form-group text-center btnsub">
+                <button type="submit" class="btn">Validation</button>
+        </div>
+        }
+    </form>
+    <img src="~/img/rm.png" alt="image" class="bottom-right">
+</div>

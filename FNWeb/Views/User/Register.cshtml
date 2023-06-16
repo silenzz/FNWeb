@@ -1,0 +1,119 @@
+﻿@model IEnumerable<FNWeb.Models.Account>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="~/css/User/Login_form.css" asp-append-version="true" />
+<div class="container_login">
+    <div class="card">
+        <form action="/user/register" method="post">
+            <div class="form">
+                <div class="left-side"> <span></span> <span></span> <span></span> <span></span> </div>
+                <div class="right-side">
+
+                    <div class="signin_form s_form ">
+                        <div class="login">
+                            <h2>User Register</h2>
+                        </div>
+                        <div class="input_text">
+                            <input type="text" placeholder="Username" id="ID" name="ID" required />
+                        </div>
+                        <div class="input_text">
+                            <input type="text" placeholder="Nhập đầy đủ họ và tên" id="name" name="name" required>
+                        </div>
+                        <div class="input_text">
+                            <input type="email" placeholder="Nhập vào email" id="email" name="email" required />
+                        </div>
+                        <div class="input_text">
+                            <input class="signin_pass" type="password" id="password" name="pass" required
+                                   placeholder="Password">
+                        </div>
+                        <div class="login_btn"> <button type="submit" class="login_button">Register</button> </div>
+
+                        <div class="create margin">
+                            <a href="/user" class="create_acc">
+                               Already have account?  <u>Click here</u> <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(ViewData["check"]?.ToString()))
+                    {
+                        <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+                            <div class="alert alert-success" role="alert" style="padding: 10px; margin: 20px;">
+                                @ViewData["check"]
+                            </div>
+                        </div>
+
+                    }
+                    <div class="signup_form s_form d-none">
+                        <div class="login">
+                            <h2>Create Account</h2>
+                        </div>
+                        <div class="input_text">
+                            <input type="text" placeholder="Username"> <i class="fa fa-user"></i>
+                        </div>
+                        <div class="input_text">
+                            <input type="text" placeholder="Email"> <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="input_text">
+                            <input type="password" class="signup_pass" placeholder="Password"> <i class="fa fa-lock"></i> <i class="fa fa-eye-slash signup_eye"></i>
+                        </div>
+                        <div class="login_btn"> <button class="signup_button">Sign Up</button> </div>
+                        <div class="create">
+                            <p>
+                                Already have an account? <a href="#" class="login_acc">
+                                    Login <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+@*
+<link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+<div class="container">
+    <div id="x">
+        @ViewData["x"]
+    </div>
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <p id="test">Hello my name is Nguyen Dang Anh Quan</p>
+    </div>
+
+
+    <h2>Đăng ký tài khoản</h2>
+    <form method="post" action="/user/register">
+        <label for="id">ID:</label>
+        <input type="text" id="ID" name="ID" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="pass" name="pass" required>
+
+        <input type="submit" value="Đăng ký">
+
+    </form>
+
+    <center><a href="/home/Login" class="float-right">If you have an account before click here</a></center>
+
+    @if (!string.IsNullOrEmpty(ViewData["check"]?.ToString()))
+    {
+        <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+            <div class="alert alert-success" role="alert" style="padding: 10px; margin: 20px;">
+                @ViewData["check"]
+            </div>
+        </div>
+
+    }
+</div>
+*@

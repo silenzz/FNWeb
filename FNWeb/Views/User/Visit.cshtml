@@ -1,0 +1,12 @@
+﻿<link rel="stylesheet" href="~/css/Shop/Main.css" asp-append-version="true" />
+
+<center><h1>@ViewData["shop"]</h1></center>
+<div class="container">
+    <div class="tab-content">
+        <div id="tab-1" class="tab-pane fade show p-0 active">
+            <div class="row g-4">
+                @Html.Raw(ViewData["content"])
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿<link rel="stylesheet" href="~/css/User/Cart2.css" asp-append-version="true" />
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID Order</th>
+                <th>ID User</th>
+                <th>Address to ship</th>
+                <th>Price</th>
+                <th>Date At</th>
+                <th>Status</th>
+                <th>Chi tiết</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.Raw(ViewData["content"])
+        </tbody>
+        <tfoot>
+           
+        </tfoot>
+    </table>
+    <script>
+        let moneys = document.querySelectorAll('.money');
+        moneys.forEach(function (money) {
+            let value = parseFloat(money.textContent);
+            let formattedMoney = value.toLocaleString('vi-VN') + "đ";
+            money.textContent = formattedMoney;
+        });
+
+    </script>
+ 

@@ -1,0 +1,31 @@
+﻿@if (!string.IsNullOrEmpty(ViewData["done"]?.ToString()))
+{
+    <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+        <div class="alert alert-success" role="alert" style="padding: 10px; margin: 20px;">
+            @ViewData["done"]
+        </div>
+    </div>
+
+}
+@if (!string.IsNullOrEmpty(ViewData["error"]?.ToString()))
+{
+    <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+        <div class="alert alert-danger" role="alert" style="padding: 10px; margin: 20px;">
+            @ViewData["error"]
+        </div>
+    </div>
+   
+
+}
+@if (!string.IsNullOrEmpty(ViewData["done"]?.ToString()))
+{
+    <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+        <div class="alert alert-danger" role="alert" style="padding: 10px; margin: 20px;">
+            @ViewData["done "]
+        </div>
+    </div>
+
+
+}
+
+@ViewData["x"]

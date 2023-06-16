@@ -1,0 +1,86 @@
+﻿
+body {
+    background-color: floralwhite;
+}
+
+.left {
+    display: flex;
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    display: flex;
+    float: right;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+}
+
+.images {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    margin: 150px auto;
+    border: solid;
+    border-radius: 10px;
+    position: relative;
+}
+
+    .images img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+    }
+
+    .images:hover {
+        transform: scale(1.6);
+        object-fit: unset;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+.title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: lightgray;
+    font-family: 'Century Gothic';
+    font-weight: bold;
+    font-style: oblique;
+    color: black;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .left, .right {
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+
+    .images {
+        width: 90%;
+        margin: 50px auto;
+    }
+}
+
+/* For devices with a screen width of less than or equal to 576px */
+@media only screen and (max-width: 576px) {
+
+    .title {
+        font-size: 20px;
+    }
+}

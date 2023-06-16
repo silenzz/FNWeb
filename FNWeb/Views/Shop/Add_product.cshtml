@@ -1,0 +1,59 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/Shop/Add.css" asp-append-version="true" />
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-body">
+                    <h2 class="banner">Products management</h2>
+                        <form action="/shop/add_product" method="post" enctype="multipart/form-data">
+                                        @if (!string.IsNullOrEmpty(ViewData["check"]?.ToString()))
+                                        {
+                                <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+                                    <div class="alert alert-success" role="alert" style="padding: 10px; margin: 20px;">
+                                                    @ViewData["check"]
+                                    </div>
+                                </div>
+
+                                        }
+                            <div class="form-group">
+                                <label for="Name">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Price">Price:</label>
+                                <input type="number" class="form-control" id="price" name="price" required>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="image">Image:</label>
+                                <input type="file" name="image" id="image" accept="image/jpeg">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="quantity">Quanity:</label>
+                                <input type="number" class="form-control" id="quantity" name="quantity" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type:</label>
+                                <input type="text" class="form-control" id="type" name="type" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description:</label>
+                                <input type="text" class="form-control" id="description" name="description" required>
+                            </div>
+                        <div class="btn-container">
+                            <button type="submit" class="btn mt-4">Add</button>
+                        </div>
+                                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

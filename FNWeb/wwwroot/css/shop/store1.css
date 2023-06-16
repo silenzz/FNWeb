@@ -1,0 +1,114 @@
+﻿.blockage {
+    border: 3px solid black;
+    margin-top: 70px;
+    padding: 5px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.order {
+    border: solid black 5px;
+}
+
+.items {
+    padding-top: 10px;
+    border: ridge 2px black;
+}
+
+tr img {
+    width: 50px;
+    height: 100%;
+}
+
+.choices {
+    padding-top: 7px;
+}
+
+.btnsub {
+    padding-top: 10px;
+}
+
+.btn {
+    background-color: white;
+    border-color: aliceblue;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* add box-shadow */
+}
+
+    .btn:hover {
+        background-color: azure;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* add box-shadow on hover */
+    }
+
+
+h1 {
+    text-align: center;
+    font-family: 'Century Gothic';
+    font-weight: bold;
+    font-style: oblique;
+}
+
+body {
+    background-image: url(./shop_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: blur(2px);
+}
+
+.title {
+    text-align: center;
+    font-family: 'Century Gothic';
+    font-weight: bold;
+    font-style: oblique;
+    padding-top: 20px;
+    font-size: 24px;
+}
+
+.form-control {
+    width: 125px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bottom-right {
+    width: 180px;
+    height: 180px;
+    position: fixed;
+    bottom: -22%;
+    left: 0;
+    animation: move-right 5s linear infinite;
+}
+
+@keyframes move-right {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(100vw - 100px));
+    }
+}
+
+.form-control:hover {
+    background-color: azure;
+}
+
+/* Media Query for Tablets */
+@media only screen and (max-width: 768px) {
+    .blockage {
+        margin-top: 50px;
+        padding: 10px;
+    }
+}
+
+/* Media Query for Mobiles */
+@media only screen and (max-width: 576px) {
+    .blockage {
+        margin-top: 30px;
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+}

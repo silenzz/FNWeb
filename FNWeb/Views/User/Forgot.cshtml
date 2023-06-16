@@ -1,0 +1,28 @@
+﻿<link rel="stylesheet" href="~/css/User/forgot.css" asp-append-version="true" />
+<p>@ViewData["p1"]<p>
+<p>@ViewData["p2"]<p>
+    <div class="container_login">
+        <div class="row justify-content-center">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Forgot</h2>
+                        <form action="/user/forgot" method="post">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <center> <button type="submit" class="btn btn-primary btn-block mt-4">Send OTP</button></center>
+                                        @if (!string.IsNullOrEmpty(ViewData["check"]?.ToString()))
+                                        {
+                                            <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+                                                <div class="alert alert-danger" role="alert" style="padding: 10px; margin: 20px;">
+                                                                @ViewData["check"]
+                                                </div>
+                                            </div>
+
+                                        }
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
